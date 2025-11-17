@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CalculatorTest {
     Calculator calc;
@@ -21,6 +22,13 @@ public class CalculatorTest {
     }
 
     @Test
+    public void testAdd_fail()
+    {
+       Exception ex = assertThrows(ArithmeticException.class, ()->calc.add(Integer.MAX_VALUE,1));// max value +1 to create overflow
+        assertEquals("Value out of range.", ex.getMessage());
+    }
+
+    @Test
     public void testSubtract_Success()
     {
         assertEquals(20, calc.subtract(25,5));
@@ -35,6 +43,6 @@ public class CalculatorTest {
     @Test
     public void testDivide_Success()
     {
-        assertEquals(0, calc.divide(5,5));
+        assertEquals(5, calc.divide(25,5));
     }
 }

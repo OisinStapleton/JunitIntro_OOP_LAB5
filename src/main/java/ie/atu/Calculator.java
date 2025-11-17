@@ -4,6 +4,10 @@ public class Calculator {
 
     public int add(int firstNum, int secondNum)
     {
+        if(firstNum == Integer.MAX_VALUE || secondNum == Integer.MAX_VALUE)
+        {
+            throw new ArithmeticException("Value out of range.");
+        }
         return firstNum + secondNum;
     }
     public int subtract(int firstNum , int secondNum)
@@ -16,6 +20,9 @@ public class Calculator {
     }
 
     public int divide(int firstNum, int secondNum) {
+        if(firstNum == 0 || secondNum == 0){
+            throw new ArithmeticException("Cannot divide by zero.")
+        }
         return firstNum / secondNum;
     }
 }
