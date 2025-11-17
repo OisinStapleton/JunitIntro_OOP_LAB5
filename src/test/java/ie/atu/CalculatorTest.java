@@ -26,4 +26,15 @@ public class CalculatorTest {
         assertEquals(20, calc.subtract(25,5));
     }
 
+    @Test
+    public void testMultiply_Success()
+    {
+        assertEquals(49, calc.multiply(7,7));
+    }
+
+    @Test
+    public void testDivide_Success()
+    {
+        assertEquals(0, calc.divide(5,5));
+    }
 }
