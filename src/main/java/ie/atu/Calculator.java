@@ -12,6 +12,9 @@ public class Calculator {
     }
     public int subtract(int firstNum , int secondNum)
     {
+        if(firstNum == Integer.MIN_VALUE || secondNum == Integer.MIN_VALUE) {
+            throw new ArithmeticException("Value out of range.");
+        }
     return firstNum - secondNum;
     }
 
@@ -21,7 +24,7 @@ public class Calculator {
 
     public int divide(int firstNum, int secondNum) {
         if(firstNum == 0 || secondNum == 0){
-            throw new ArithmeticException("Cannot divide by zero.")
+            throw new ArithmeticException("Cannot divide by zero.");
         }
         return firstNum / secondNum;
     }

@@ -35,6 +35,12 @@ public class CalculatorTest {
     }
 
     @Test
+    public void testSubtract_fail() {
+        Exception ex = assertThrows(ArithmeticException.class, ()-> calc.subtract(Integer.MIN_VALUE,-1));
+        assertEquals("Value out of range.", ex.getMessage());
+    }
+
+    @Test
     public void testMultiply_Success()
     {
         assertEquals(49, calc.multiply(7,7));
