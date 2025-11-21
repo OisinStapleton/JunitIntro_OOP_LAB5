@@ -25,7 +25,7 @@ public class CalculatorTest {
     public void testAdd_fail()
     {
        Exception ex = assertThrows(ArithmeticException.class, ()->calc.add(Integer.MAX_VALUE,1));// max value +1 to create overflow
-        assertEquals("Value out of range.", ex.getMessage());
+        assertEquals("Value out of range, above highest value.", ex.getMessage());
     }
 
     @Test
@@ -37,7 +37,7 @@ public class CalculatorTest {
     @Test
     public void testSubtract_fail() {
         Exception ex = assertThrows(ArithmeticException.class, ()-> calc.subtract(Integer.MIN_VALUE,-1));
-        assertEquals("Value out of range.", ex.getMessage());
+        assertEquals("Value out of range, below lowest value.", ex.getMessage());
     }
 
     @Test
@@ -45,6 +45,13 @@ public class CalculatorTest {
     {
         assertEquals(49, calc.multiply(7,7));
     }
+
+    @Test
+    public void testMultiply_fail(){
+        Exception ex = assertThrows(ArithmeticException.class, ()-> calc.multiply(Integer.MAX_VALUE,1));
+        assertEquals("Value too high or too low.", ex.getMessage());
+    }
+
 
     @Test
     public void testDivide_Success()
