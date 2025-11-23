@@ -47,8 +47,22 @@ public class CalculatorTest {
     }
 
     @Test
+    public void testMultiply_fail()
+    {
+        Exception ex = assertThrows(ArithmeticException.class, ()-> calc.multiply(Integer.MAX_VALUE,1));
+        assertEquals("Value too high or too low.", ex.getMessage());
+    }
+
+    @Test
     public void testDivide_Success()
     {
         assertEquals(5, calc.divide(25,5));
+    }
+
+    @Test
+    public void testDivide_fail()
+    {
+        Exception ex = assertThrows(ArithmeticException.class, ()-> calc.divide(10,0));
+        assertEquals("Cannot divide by zero.", ex.getMessage());
     }
 }

@@ -19,6 +19,9 @@ public class Calculator {
     }
 
     public int multiply(int firstNum, int secondNum) {
+        if(firstNum * secondNum == Integer.MAX_VALUE || secondNum * firstNum == Integer.MIN_VALUE){
+            throw new ArithmeticException("Value too high or too low.");
+        }
         return firstNum * secondNum;
     }
 
